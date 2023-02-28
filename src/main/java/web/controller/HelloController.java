@@ -1,9 +1,12 @@
 package web.controller;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import web.model.User;
+import web.service.UserService;
+import web.service.UserServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +14,17 @@ import java.util.List;
 @Controller
 public class HelloController {
 
+	private final UserServiceImpl userService;
+
+	public HelloController(UserServiceImpl userService) {
+		this.userService = userService;
+	}
+
 	@GetMapping(value = "/")
 	public String printWelcome(ModelMap model) {
-		List<String> messages = new ArrayList<>();
-		messages.add("Hello!");
-		messages.add("I'm Spring MVC application");
-		messages.add("5.2.0 version by sep'19 ");
-		model.addAttribute("messages", messages);
+		List<User> listUsers = List.of(new User(1L,"ert","dfg","fghj"),
+				new User(2L,"hjk","piu","jhkg"));
+		model.addAttribute("index", listUsers);
 		return "index";
 	}
 	
