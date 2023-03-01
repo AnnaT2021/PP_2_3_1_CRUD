@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add user</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Добавление участника</h1>
+<br/><br/>
+<div>
+<form th:method="POST" th:action="@{/users/add}" th:object="${user}">
+    <label for="name">Имя</label>
+    <input type="text" th:field="*{firstName}" id="name"/>
+    <br/><br/>
+    <label for="lastName">Фамилия</label>
+    <input type="text" th:field="*{lastName}" id="lastName"/>
+    <br/><br/>
+    <label for="city">Город</label>
+    <input type="text" th:field="*{city}" id="city"/>
+    <br/><br/>
+    <input type="submit" value="Добавить участника"/>
+</form>
+    <p> Вернуться к  <a href="/users"> списку участников</a></p>
+</div>
+</body>
+</html>

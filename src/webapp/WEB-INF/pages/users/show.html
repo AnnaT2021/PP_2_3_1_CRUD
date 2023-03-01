@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Участник</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Участник</h1>
+<br/><br/>
+<div>
+
+  <table border="1">
+    <tr>
+      <th>---First Name---</th>
+      <th>---Last Name---</th>
+      <th>---City---</th>
+    </tr>
+    <tr>
+
+        <td th:text="${user.getFirstName()}">VALUE</td>
+        <td th:text="${user.getLastName()}">VALUE</td>
+        <td th:text="${user.getCity()}">VALUE</td>
+
+    </tr>
+  </table>
+  <p> Вернуться к  <a href="users/users"> списку участников</a></p>
+</div>
+</body>
+</html>
