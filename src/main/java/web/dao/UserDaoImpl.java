@@ -11,7 +11,6 @@ import java.util.List;
 
 
 @Repository
-@Transactional
 public class UserDaoImpl implements UserDao {
 
     @PersistenceContext(unitName = "entityManagerFactory")
